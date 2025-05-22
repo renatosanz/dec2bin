@@ -2,7 +2,7 @@
 Simple number base converter (decimal, binary, octal, hexadecimal) written in C with GTK4.
 
 ## Compiling
-Just ensure install `gtk4` ,`meson` and `gcc`, then run:
+Just ensure install `gtk4`, [blueprint-compiler](https://gnome.pages.gitlab.gnome.org/blueprint-compiler/), `meson` and `gcc`, then run:
 
 ```bash
 meson compile -C build && build/dec2bin                                                
