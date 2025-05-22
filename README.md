@@ -1,14 +1,39 @@
 # dec2bin
-Simple number base converter (decimal, binary, octal, hexadecimal) written in C with GTK4.
+A simple yet powerful GTK4 application for converting numbers between different numerical bases (binary, decimal, hexadecimal and octal).
+
+## Features
+
+### Core Functionality
+- **Bidirectional Conversion**: Convert from any base to any other base
+- **Real-time Updates**: Results update instantly as you type
+- **Large Number Support**: Handle very large numbers (limited by system memory)
+- **Clean GTK4 Interface**: Modern, responsive design with Libadwaita support
+- **Smart Input Filtering**: Automatically filters invalid characters for selected base (using regular expressions)
+- **Base Selection**: Dropdown menus for easy base selection
+- **Placeholder Hints**: Shows current base in input field placeholders
+- **Quick Swap**: Button to instantly swap between input/output bases
 
 ## Compiling
-Just ensure install `gtk4`, [blueprint-compiler](https://gnome.pages.gitlab.gnome.org/blueprint-compiler/), `meson` and `gcc`, then run:
+Ensure you have dependencies installed:
+
+```bash
+# Debian/Ubuntu
+sudo apt install build-essential meson libgtk-4-dev libadwaita-1-dev blueprint-compiler
+
+# Fedora
+sudo dnf install gcc meson gtk4-devel libadwaita-devel blueprint-compiler
+```
+
+> [blueprint-compiler](https://gnome.pages.gitlab.gnome.org/blueprint-compiler/) install from source (recommended)
+
 
 ```bash
 meson compile -C build && build/dec2bin                                                
 ```
 
 ## Install
+
+### From source 
 Just give executable permission to `install.sh` and run it:
 
 ```bash
@@ -16,4 +41,26 @@ chmod +x install.sh
 ./install.sh
 ```
 
+### Flatpak (Coming Soon)
+```bash
+flatpak install flathub org.riprtx.dec2bin
+```
+
+## Keyboard Shortcuts
+
+| Shortcut       | Action                     |
+|----------------|----------------------------|
+| Ctrl+Q         | Quit application           |
+| Ctrl+X         | Switch between bases       |
+| Tab            | Move focus between fields  |
+| Ctrl+Backspace | Clear both fields          |
+
 ![dec2bin preview image](preview.png)
+
+## Contributing
+
+Contributions are welcome! Please open an issue or pull request at our [GitHub repository](https://github.com/yourusername/dec2bin).
+
+## License
+
+GPL-3.0-or-later © 2025 Renato Sanchez
