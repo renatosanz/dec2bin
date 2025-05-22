@@ -15,3 +15,5 @@ Just give executable permission to `install.sh` and run it:
 chmod +x install.sh
 ./install.sh
 ```
+
+![dec2bin preview image](preview.png)
