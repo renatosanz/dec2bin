@@ -41,19 +41,6 @@ chmod +x install.sh
 ./install.sh
 ```
 
-### Flatpak (Coming Soon)
-```bash
-flatpak install flathub org.riprtx.dec2bin
-```
-
-## Keyboard Shortcuts
-
-| Shortcut       | Action                     |
-|----------------|----------------------------|
-| Ctrl+Q         | Quit application           |
-| Ctrl+X         | Switch between bases       |
-| Tab            | Move focus between fields  |
-| Ctrl+Backspace | Clear both fields          |
 
 ![dec2bin preview image](preview.png)
 
@@ -64,3 +51,19 @@ Contributions are welcome! Please open an issue or pull request at our [GitHub r
 ## License
 
 GPL-3.0-or-later © 2025 Renato Sanchez
+
+## Coming Soon
+
+### Flatpak 
+```bash
+flatpak install flathub org.riprtx.dec2bin
+```
+
+### Keyboard Shortcuts
+
+| Shortcut       | Action                     |
+|----------------|----------------------------|
+| Ctrl+Q         | Quit application           |
+| Ctrl+X         | Switch between bases       |
+| Tab            | Move focus between fields  |
+| Ctrl+Backspace | Clear both fields          |
