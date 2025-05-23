@@ -43,11 +43,6 @@ chmod +x install.sh
 ./install.sh
 ```
 
-
-## Contributing
-
-Contributions are welcome! Please open an issue or pull request at our [GitHub repository](https://github.com/yourusername/dec2bin).
-
 ## License
 
 GPL-3.0-or-later © 2025 Renato Sanchez
