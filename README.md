@@ -1,6 +1,8 @@
 # dec2bin
 A simple yet powerful GTK4 application for converting numbers between different numerical bases (binary, decimal, hexadecimal and octal).
 
+![dec2bin preview image](preview.png)
+
 ## Features
 
 ### Core Functionality
@@ -41,8 +43,6 @@ chmod +x install.sh
 ./install.sh
 ```
 
-
-![dec2bin preview image](preview.png)
 
 ## Contributing
 
