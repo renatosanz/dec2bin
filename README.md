@@ -1,7 +1,8 @@
 # dec2bin
-A simple yet powerful GTK4 application for converting numbers between different numerical bases (binary, decimal, hexadecimal and octal).
 
 ![dec2bin preview image](preview.png)
+
+A simple yet powerful GTK4 application for converting numbers between different numerical bases (binary, decimal, hexadecimal and octal).
 
 ## Features
 
