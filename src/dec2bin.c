@@ -1,5 +1,4 @@
 #include "glib.h"
-#include "gtk/gtk.h"
 #include <dec2bin.h>
 #include <math.h>
 #include <regex.h>
@@ -136,7 +135,7 @@ void to_octal(long int input, char *buffer) {
 
 // compile regex for each regex
 void compile_regex(InputData *data, char *base) {
-  g_print("regex_compiled %s\n", base);
+  // g_print("regex_compiled %s\n", base);
   if (strcmp(base, "binary") == 0) {
     regcomp(&data->last_regex, regex_bin, REG_EXTENDED);
   } else if (strcmp(base, "octal") == 0) {
@@ -196,7 +195,7 @@ char *convert(char *from_base, char *to_base, char *value, regex_t regex,
     printf("Comando desconocido: %s\n", from_base);
   }
 
-  g_print("res: %s\n", buffer);
+  // g_print("res: %s\n", buffer);
 
   return buffer;
 }

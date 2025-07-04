@@ -1,4 +1,2 @@
-meson setup builddir --prefix=/usr
-meson compile -C builddir
-sudo meson install -C builddir
+meson setup --wipe build && meson install -C build 
 which dec2bin

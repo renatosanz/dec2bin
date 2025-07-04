@@ -3,6 +3,7 @@
 #include "glib.h"
 #include <dec2bin.h>
 #include <gtk/gtk.h>
+#include <keybindings.h>
 #include <regex.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -210,6 +211,10 @@ static void *on_activate(GtkApplication *app, gpointer user_data) {
                    G_CALLBACK(update_base_converter), input_left);
   g_signal_connect(GTK_WIDGET(input_right->dropdown), "notify::selected",
                    G_CALLBACK(update_base_converter), input_right);
+
+  // keybinding signals
+  loadKeyBindings(GTK_WIDGET(win));
+
   g_object_unref(builder);
 
   gtk_application_add_window(GTK_APPLICATION(app), GTK_WINDOW(win));

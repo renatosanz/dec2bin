@@ -1,7 +1,8 @@
 # dec2bin
-A simple yet powerful GTK4 application for converting numbers between different numerical bases (binary, decimal, hexadecimal and octal).
 
 ![dec2bin preview image](preview.png)
+
+A simple yet powerful GTK4 application for converting numbers between different numerical bases (binary, decimal, hexadecimal and octal).
 
 ## Features
 
@@ -14,6 +15,14 @@ A simple yet powerful GTK4 application for converting numbers between different 
 - **Base Selection**: Dropdown menus for easy base selection
 - **Placeholder Hints**: Shows current base in input field placeholders
 - **Quick Swap**: Button to instantly swap between input/output bases
+
+### Keyboard Shortcuts
+
+| Shortcut       | Action                     |
+|----------------|----------------------------|
+| Ctrl+Q         | Quit application           |
+| Ctrl+X         | Switch between bases       |
+| Ctrl+Backspace | Clear both fields          |
 
 ## Compiling
 Ensure you have dependencies installed:
@@ -53,12 +62,3 @@ GPL-3.0-or-later © 2025 Renato Sanchez
 ```bash
 flatpak install flathub org.riprtx.dec2bin
 ```
-
-### Keyboard Shortcuts
-
-| Shortcut       | Action                     |
-|----------------|----------------------------|
-| Ctrl+Q         | Quit application           |
-| Ctrl+X         | Switch between bases       |
-| Tab            | Move focus between fields  |
-| Ctrl+Backspace | Clear both fields          |
