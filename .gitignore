@@ -1,3 +1,5 @@
 build
-buildir
+builddir
+.vscode
+compile_commands.json
 .cache
