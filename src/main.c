@@ -2,6 +2,7 @@
 #include "glib-object.h"
 #include "glib.h"
 #include <dec2bin.h>
+#include <adwaita.h>
 #include <gtk/gtk.h>
 #include <keybindings.h>
 #include <regex.h>
@@ -15,7 +16,8 @@ GtkApplication *app;
 GtkWindow *win;
 
 // buttons
-GtkWidget *clean_button, *close_button, *switch_button, *about_btn;
+GtkWidget *clean_button, *close_button, *switch_button, *about_btn, *keymaps_btn;
+GtkWidget *keymaps_win;
 
 // inputs data
 InputData *input_left, *input_right, *active_input;
@@ -43,6 +45,15 @@ void display_about_window(GtkWidget *about_button, gpointer *user_data) {
                         example_logo, // Logo
                         NULL          // Fin de los argumentos
   );
+}
+
+static void display_keymaps_window(GtkWidget *button, gpointer user_data) {
+  gtk_window_present(GTK_WINDOW(keymaps_win));
+}
+
+gboolean on_close_keymaps_win(GtkWindow *window, gpointer data){
+    gtk_widget_hide(GTK_WIDGET(window));
+    return TRUE; 
 }
 
 void execute_base_convert(GtkEditable *editable_from,
@@ -146,6 +157,12 @@ static void *on_activate(GtkApplication *app, gpointer user_data) {
   // bind widgets to variables
   win = GTK_WINDOW(gtk_builder_get_object(builder, "dec2bin_win"));
 
+  // load keymaps window in the same builder
+  gtk_builder_add_from_resource(builder, "/org/dec2bin/data/ui/keymaps.ui",
+                                NULL);
+  keymaps_win = GTK_WIDGET(gtk_builder_get_object(builder, "keymaps_win"));
+  gtk_window_set_transient_for(GTK_WINDOW(keymaps_win), GTK_WINDOW(win));
+
   // inputs
   input_left->entry = GTK_WIDGET(gtk_builder_get_object(builder, "entry_left"));
   input_right->entry =
@@ -173,6 +190,7 @@ static void *on_activate(GtkApplication *app, gpointer user_data) {
 
   close_button = GTK_WIDGET(gtk_builder_get_object(builder, "close_btn"));
   about_btn = GTK_WIDGET(gtk_builder_get_object(builder, "about_display_btn"));
+  keymaps_btn = GTK_WIDGET(gtk_builder_get_object(builder, "keymaps_btn"));
   switch_button =
       GTK_WIDGET(gtk_builder_get_object(builder, "switch_base_btn"));
   clean_button = GTK_WIDGET(gtk_builder_get_object(builder, "clean_btn"));
@@ -190,6 +208,10 @@ static void *on_activate(GtkApplication *app, gpointer user_data) {
                    NULL);
   g_signal_connect(GTK_WIDGET(about_btn), "clicked",
                    G_CALLBACK(display_about_window), NULL);
+  g_signal_connect(GTK_WIDGET(keymaps_btn), "clicked",
+                   G_CALLBACK(display_keymaps_window), NULL);
+  g_signal_connect(G_OBJECT(keymaps_win), "close-request", 
+                   G_CALLBACK(on_close_keymaps_win), NULL);
   g_signal_connect(GTK_WIDGET(switch_button), "clicked",
                    G_CALLBACK(switch_bases), NULL);
   g_signal_connect(GTK_WIDGET(clean_button), "clicked",
@@ -224,6 +246,7 @@ static void *on_activate(GtkApplication *app, gpointer user_data) {
 
 int main(int argc, char **argv) {
   gtk_init();
+  adw_init();
   app = gtk_application_new("org.riprtx.dec2Bin", G_APPLICATION_DEFAULT_FLAGS);
   gtk_window_set_default_icon_name("dec2bin");
   g_signal_connect(app, "activate", G_CALLBACK(on_activate), NULL);

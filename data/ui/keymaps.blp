@@ -1,0 +1,75 @@
+using Gtk 4.0;
+using Adw 1;
+
+Window keymaps_win{
+  title:"Keymaps";
+  resizable:false;
+  modal:true;
+  default-width:360;
+
+  [titlebar]
+  HeaderBar {
+    title-widget: Label{
+      label:"Keyboard Shortcuts";
+    };
+  }
+
+  Box {
+    orientation:vertical;
+    margin-top:12;
+    margin-bottom:12;
+    margin-start:12;
+    margin-end:12;
+    spacing:12;
+
+    Frame {
+      css-classes:["view"];
+      Box {
+        orientation:vertical;
+        margin-top:8;
+        margin-bottom:8;
+        margin-start:12;
+        margin-end:12;
+        spacing:8;
+
+        Grid {
+          column-spacing:24;
+          row-spacing:8;
+
+          Adw.ShortcutLabel{
+            layout{column:0;row:0;}
+            accelerator:"<Control>q";
+            valign:start;
+          }
+          Label{
+            layout{column:1;row:0;}
+            label:"Quit application";
+            xalign:0;
+          }
+
+          Adw.ShortcutLabel{
+            layout{column:0;row:1;}
+            accelerator:"<Control>x";
+            valign:start;
+          }
+          Label{
+            layout{column:1;row:1;}
+            label:"Switch between bases";
+            xalign:0;
+          }
+
+          Adw.ShortcutLabel{
+            layout{column:0;row:2;}
+            accelerator:"<Control>BackSpace";
+            valign:start;
+          }
+          Label{
+            layout{column:1;row:2;}
+            label:"Clear both fields";
+            xalign:0;
+          }
+        }
+      }
+    }
+  }
+}
